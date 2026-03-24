@@ -1,0 +1,57 @@
+# IDE
+.idea
+.cadence
+
+# Git
+.git
+
+# Dataset
+**/*.jpg
+**/*.gif
+
+# Model
+**/*.h5
+**/*.keras
+
+# Dependencies
+**/node_modules/
+**/.pnp
+**/.pnp.js
+
+# Credentials
+**/credentials/**/*.json
+**/cred/**/*.json
+keys/*.yaml
+keys/*.yml
+keys/*.json
+
+# Config
+config.yaml
+
+# Env
+venv/env/*
+**/.env
+**/venv_*/
+.venv/
+
+# Output
+artifacts/image_captioning/models/*
+artifacts/**/*.json
+artifacts/**/*.jsonl
+**/coverage/
+**/build/
+**/logs/
+**/*.log*
+**/*.egg-info
+**/nohup.out
+**/*.pid
+
+# Local package
+
+# Misc
+.DS_Store
+**/*.swp
+**/*.backup
+*.pyc
+**/__pycache__/
+**/.python-version
