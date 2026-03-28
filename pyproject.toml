@@ -40,6 +40,7 @@ tensorflow-macos = "^2.16.2"
 accelerate = "^1.13.0"
 timm = "^1.0.26"
 huggingface-hub = ">=0.34,<1.0"
+tf-keras = ">=2.16,<2.17"
 
 
 [build-system]
