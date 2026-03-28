@@ -34,6 +34,12 @@ setuptools = ">=80,<82"
 scikit-learn = "^1.8.0"
 notebook = "^7.5.5"
 pillow = ">=11.1,<13"
+transformers = ">=4.42,<5"
+datasets = "^4.8.4"
+tensorflow-macos = "^2.16.2"
+accelerate = "^1.13.0"
+timm = "^1.0.26"
+huggingface-hub = ">=0.34,<1.0"
 
 
 [build-system]

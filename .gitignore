@@ -6,8 +6,9 @@
 .git
 
 # Dataset
-**/*.jpg
-**/*.gif
+dataset/**/*.txt
+dataset/**/*.jpg
+dataset/**/*.gif
 
 # Model
 **/*.h5
