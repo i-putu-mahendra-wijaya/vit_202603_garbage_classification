@@ -6,14 +6,14 @@ This repository contains a Jupyter notebook that:
 
 - downloads the `asdasdasasdas/garbage-classification` dataset from Kaggle,
 - performs exploratory analysis and preprocessing,
-- trains a simple Convolutional Neural Network (CNN) with TensorFlow.
+- fine-tunes a Vision Transformer (ViT) image classifier with TensorFlow and Hugging Face Transformers.
 
 ## Project Contents
 
 - `garbage_classification.ipynb`: main notebook for the project
 - `pyproject.toml`: Python dependencies managed with Poetry
 - `poetry.lock`: locked dependency versions
-- `dataset/`: local cache for downloaded image files
+- `dataset/`: generated local cache for downloaded image files after the notebook runs
 
 ## Supported Environment
 
@@ -41,6 +41,7 @@ Recommended:
 
 - Jupyter support in VS Code, PyCharm, or JupyterLab
 - A Kaggle account for dataset download
+- A Hugging Face account and token for downloading the pre-trained ViT model used in the notebook
 
 ## 1. Install Python 3.12
 
@@ -93,7 +94,7 @@ poetry --version
 
 ```bash
 git clone git@github.com:i-putu-mahendra-wijaya/vit_202603_garbage_classification.git
-cd cnn_202603_indonesian_food
+cd vit_202603_garbage_classification
 ```
 
 If your lecturer already distributed the folder, just open the project directory in your terminal.
@@ -111,11 +112,18 @@ This creates a virtual environment and installs all required packages from `pypr
 Important packages include:
 
 - TensorFlow `2.16.2`
+- `tensorflow-macos` on macOS
+- `tensorflow-metal` on Apple Silicon Macs
+- `tf-keras`
 - scikit-learn
 - pandas
 - seaborn
 - matplotlib
-- ydata-profiling
+- huggingface-hub
+- transformers
+- datasets
+- accelerate
+- timm
 - kagglehub
 - ipykernel
 
@@ -148,7 +156,7 @@ poetry run python --version
 This makes the Poetry environment appear as a notebook kernel.
 
 ```bash
-poetry run python -m ipykernel install --user --name indonesoan-food --display-name "Python (garbage-classification)"
+poetry run python -m ipykernel install --user --name garbage-classification --display-name "Python (garbage-classification)"
 ```
 
 After that, open the notebook and select the kernel:
@@ -195,7 +203,23 @@ The notebook also checks this path:
 
 If neither file exists, `kagglehub.login()` may prompt you to log in interactively from the notebook.
 
-## 8. Open and Run the Notebook
+## 8. Set Up Hugging Face Authentication
+
+The notebook logs into Hugging Face before loading the pretrained ViT model.
+
+Create a token from:
+
+- https://huggingface.co/settings/tokens
+
+Then create this file from the template already included in the repository:
+
+```bash
+cp cred/hf_token.json.template cred/hf_token.json
+```
+
+Edit `cred/hf_token.json` and place your token in the `value` field.
+
+## 9. Open and Run the Notebook
 
 Start Jupyter:
 
@@ -228,7 +252,7 @@ What the notebook does:
 
 The notebook uses the Kaggle dataset:
 
-- https://www.kaggle.com/datasets/rizkyyk/dataset-food-classification
+- https://www.kaggle.com/datasets/asdasdasasdas/garbage-classification
 
 When first run:
 
@@ -308,10 +332,10 @@ Make sure you are using Python `3.12.x`. Installing a different Python version m
 Run the kernel registration command again:
 
 ```bash
-poetry run python -m ipykernel install --user --name indonesian-food --display-name "Python (garbage-classification)"
+poetry run python -m ipykernel install --user --name garbage-classification --display-name "Python (garbage-classification)"
 ```
 
-## Suggested Setup for Students
+## Suggested Setup
 
 If you want the smoothest local setup:
 
